@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Registration
+{% endblock %}
+
+{% block heading %}
+Register YourSelf !!
+{% endblock %}
+{% block body %}
+{% if message %}
+<div class="alert alert-info">
+  <strong>{{ message }}</strong>
+</div>
+{% endif %}
+{% if message_success %}
+<div class="alert alert-success">
+  <strong>{{ message_success }}</strong>
+</div>
+{% endif %}
+{% if message_alert %}
+<div class="alert alert-warning">
+  <strong>{{ message_alert }}</strong> 
+</div>
+{% endif %}
+<form action="{{ url_for('result') }}" method="post" style=width:25%>
+  <div class="form-group">
+    <label for="fname"> First Name: </label>
+    <input type="text" class="form-control" name="fname" id="fname">
+    <label for="lname"> Last Name: </label>
+    <input type="text" class="form-control" name="lname" id="lname">
+    <label for="email"> Email Id: </label>
+    <input type="email" class="form-control" name="email" id="email">
+    <label for="username"> username: </label>
+    <input type="text" class="form-control" name="username" id="username">
+    <label for="password"> password: </label>
+    <input type="password" class="form-control" name="password" id="passwrod">
+    <div>
+    <div class="form-group">
+    <br>
+    <button class="btn btn-primary">Submit</button>
+    </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block heading %}
+Login Page
+{% endblock %}
+
+{% block body %}
+{% if message %}
+<div class="alert alert-info">
+  <strong>{{ message }}</strong>
+</div>
+{% endif %}
+{% if message_success %}
+<div class="alert alert-success">
+  <strong>{{ message_success }}</strong>
+</div>
+{% endif %}
+{% if message_alert %}
+<div class="alert alert-warning">
+  <strong>{{ message_alert }}</strong> 
+</div>
+{% endif %}
+<div class="form-group">
+<form action="{{ url_for('login') }}" method="post" style=width:25%>
+    <label for="username"> username: </label>
+    <input type="text" class="form-control" name="username" id="username">
+    <label for="password"> password: </label>
+    <input type="password" class="form-control" name="password" id="passwrod">
+    <br>
+    <div>
+    <div class="form-group">
+    <button class="btn btn-primary">LogIn</button>
+    </form>
+</div>
+<a href="{{ url_for('registration') }}"> Register Yourself </a>
+{% endblock %}

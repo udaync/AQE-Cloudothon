@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Final
+{% endblock %}
+
+{% block heading %}
+{{ message }}
+{% endblock %}
+{% block body %}
+Rating  : {{ rating }} <br>
+Review  :  {{ review }} <br>
+<br>
+<a href="{{ url_for('logout') }}"> logout </a>
+{% endblock %}

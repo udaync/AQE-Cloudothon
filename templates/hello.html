@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block heading %}
+{{ headline }}
+{% endblock %}
+
+{% block body %}
+Welcome {{ username }}
+<a href="{{ url_for('index') }}"> back to login </a>
+{% endblock %}

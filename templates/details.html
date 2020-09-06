@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block title %}
+Details
+{% endblock %}
+
+{% block heading %}
+Book Details
+{% endblock %}
+{% block body %}
+<br>
+{% for details in book_detail %}
+<h4> ISBN :{{ details.isbn }} </h4> 
+<h3> Book Name: {{ details.title }}</h3> 
+<h5> Author: {{ details.author }} </h4>
+<h5> Publish Year: {{details.pubyear }}</h4>
+<form action = "{{ url_for('details', book_isbn=details.isbn) }}" method="post">
+<br> <br>
+<select class="browser-default custom-select" name="rating" style=width:25%>
+  <option selected>Rate the Book</option> 
+  <option value="1">1 - Useless </option>
+  <option value="2">2 - Average</option>
+  <option value="3">3 - Interesting</option>
+  <option value="4">4 - Must Read</option>
+  <option value="5">5 - Wow</option>
+</select>
+<br><br>
+<lable for="review"> Review: </lable>
+<input type="text" id="review" name="review">
+<br>
+<button class="btn btn-primary">Submit</button>
+</form>
+{% endfor %}
+<br>Reviews from  Google Read :<br>
+{{ res }}
+<br> Top 10 Reviews on this book:<br>
+{% for reviews in book_reviews %}
+{{ reviews.review }} <br>
+{% endfor %}
+<br>
+<a href="{{ url_for('logout') }}"> logout </a>
+{% endblock%}

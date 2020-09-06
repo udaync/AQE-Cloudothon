@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Welcome
+{% endblock %}
+
+{% block heading %}
+{{message_success}} {{ username }}
+{% endblock %}
+{% block body %}
+<!-- Search form -->
+<form action="{{ url_for('search') }}" method="post" class="form-inline ">
+  <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search" name="query">
+  <i class="fas fa-search" aria-hidden="true"></i>
+  <button class="btn btn-primary">Search</button>
+</form>
+{{ message_count }}{{ count }} 
+<br>
+{{ message }} {{ temp_query }} 
+<br>
+{% for book in final_result %}
+<br>
+<h4> <b>Book Name : <a href="{{ url_for('details', book_isbn=book.isbn) }}"> {{ book.title }} </a> </b> </h4>
+<h6> <i> author:{{ book. author }} </i> </h6>
+{% endfor %}
+<a href="{{ url_for('logout') }}"> logout </a>
+{% endblock %}

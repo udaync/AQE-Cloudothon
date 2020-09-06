@@ -1,0 +1,41 @@
+{% extends "layout1.html" %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/global.css')}}">
+{% endblock %}
+{% block body %}
+<div class="container-fluid bg">
+  <div class="row">
+  <div class="col-md-4 col-sm4 col-xs-12"> </div>
+  <div class="col-md-4 col-sm4 col-xs-12">  
+<form class="form-container" action="{{ url_for('login') }}" method="post">
+<div class="form-group">
+{% if message %}
+<h4 class="form-heading"> {{ message }} </h4>
+{% endif %}
+{% if message_success %}
+<h4 class="form-heading" style="color: green"> {{ message_success }} </h4>
+{% endif %}
+</div>
+    <div class="form-group">
+	<label for="username">Username</label>
+	<input type="text" class="form-control" name="username" id="username" aria-describedby="emailHelp" placeholder="Enter email">
+	<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+	<label for="password">Password</label>
+    <input type="password" class="form-control" id="passwrod" name="password" placeholder="Password">
+	</div>
+	<button type="submit" class="btn btn-success btn-block">Login</button>
+	{% if message_alert %}
+    <h4 style="color:red"> {{ message_alert }} </h4>
+    {% endif %} 
+	<a href="{{ url_for('registration') }}"> Register Yourself </a>
+	</form>
+    </div>
+   <div class="col-md-4 col-sm4 col-xs-12">  </div>
+   </div>
+   </div>
+{% endblock %}
